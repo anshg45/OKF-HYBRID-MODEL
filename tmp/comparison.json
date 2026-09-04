@@ -1,0 +1,228 @@
+{
+  "scenario1": [
+    {
+      "label": "Plain Cloud (forced)",
+      "mode_used": "both",
+      "cost": 0.00197,
+      "latency_ms": 4283,
+      "evidence": 0.602,
+      "validation_ok": true,
+      "checks": {
+        "evidence_support": true,
+        "privacy_leakage": true,
+        "no_pii_in_output": true,
+        "citation_present": true
+      },
+      "n_sources": 8,
+      "n_sanitized": 3,
+      "cloud_released": 4,
+      "routing_reasons": [
+        "user requested cloud but private evidence present \u2192 forced BOTH mode"
+      ],
+      "privacy_exposure": 0.3,
+      "answer": "Our employee compensation policy is:\n\n- **Salary bands are set quarterly** [LOCAL]\n- **Compensation reviews occur every 6 months** [LOCAL]\n- **Managers assess performance against agreed KPIs during reviews** [LOCAL]\n- **"
+    },
+    {
+      "label": "Plain Local",
+      "mode_used": "local",
+      "cost": 8.3e-05,
+      "latency_ms": 1353,
+      "evidence": 0.602,
+      "validation_ok": false,
+      "checks": {
+        "evidence_support": true,
+        "privacy_leakage": true,
+        "no_pii_in_output": false,
+        "citation_present": true
+      },
+      "n_sources": 4,
+      "n_sanitized": 0,
+      "cloud_released": 0,
+      "routing_reasons": [
+        "user override: local"
+      ],
+      "privacy_exposure": 0.0,
+      "answer": "Our employee compensation policy, based on the provided sources, is:\n\n- **Salary bands are set quarterly**. [SOURCE 1]\n- **Compensation reviews occur every 6 months**. [SOURCE 2]\n- **Managers assess performance against a"
+    },
+    {
+      "label": "Our AUTO router",
+      "mode_used": "local",
+      "cost": 8e-05,
+      "latency_ms": 1482,
+      "evidence": 0.602,
+      "validation_ok": false,
+      "checks": {
+        "evidence_support": true,
+        "privacy_leakage": true,
+        "no_pii_in_output": false,
+        "citation_present": true
+      },
+      "n_sources": 4,
+      "n_sanitized": 0,
+      "cloud_released": 0,
+      "routing_reasons": [
+        "simple query answerable locally"
+      ],
+      "privacy_exposure": 0.0,
+      "answer": "Our employee compensation policy, based on the provided sources, is:\n\n- **Salary bands are set quarterly** [SOURCE 1]\n- **Compensation reviews occur every 6 months** [SOURCE 2]\n- **Managers assess performance against agr"
+    }
+  ],
+  "scenario2": [
+    {
+      "label": "Plain Cloud (forced)",
+      "mode_used": "both",
+      "cost": 0.004193,
+      "latency_ms": 9296,
+      "evidence": 0.709,
+      "validation_ok": true,
+      "checks": {
+        "evidence_support": true,
+        "privacy_leakage": true,
+        "no_pii_in_output": true,
+        "citation_present": true
+      },
+      "n_sources": 10,
+      "n_sanitized": 2,
+      "cloud_released": 5,
+      "routing_reasons": [
+        "user requested cloud but private evidence present \u2192 forced BOTH mode"
+      ],
+      "privacy_exposure": 0.3,
+      "answer": "Based on the available information, I can give a **high-level comparison**, but not a precise market benchmarking.\n\n### What your company is doing\nYour company appears to use a **structured, performance-linked compensati"
+    },
+    {
+      "label": "Plain Local",
+      "mode_used": "local",
+      "cost": 0.00018,
+      "latency_ms": 2829,
+      "evidence": 0.709,
+      "validation_ok": false,
+      "checks": {
+        "evidence_support": true,
+        "privacy_leakage": true,
+        "no_pii_in_output": false,
+        "citation_present": true
+      },
+      "n_sources": 5,
+      "n_sanitized": 0,
+      "cloud_released": 0,
+      "routing_reasons": [
+        "user override: local"
+      ],
+      "privacy_exposure": 0.0,
+      "answer": "I can compare some of the company\u2019s compensation practices with industry trends, but the available sources are limited.\n\n- **Industry trend:** In 2024, the global tech industry grew 8.3%, with AI and cloud services leadi"
+    },
+    {
+      "label": "Our BOTH (collaborative)",
+      "mode_used": "both",
+      "cost": 0.004513,
+      "latency_ms": 9820,
+      "evidence": 0.709,
+      "validation_ok": false,
+      "checks": {
+        "evidence_support": true,
+        "privacy_leakage": true,
+        "no_pii_in_output": false,
+        "citation_present": true
+      },
+      "n_sources": 10,
+      "n_sanitized": 2,
+      "cloud_released": 5,
+      "routing_reasons": [
+        "user override: both"
+      ],
+      "privacy_exposure": 0.3,
+      "answer": "I can give a **limited, evidence-based comparison**:\n\n### What current industry trends show\n- In 2024, **AI-sector compensation rose 12% year-over-year** [CLOUD].\n- Broader **global tech compensation grew 8.3%** in the s"
+    },
+    {
+      "label": "Our AUTO router",
+      "mode_used": "both",
+      "cost": 0.004328,
+      "latency_ms": 9129,
+      "evidence": 0.709,
+      "validation_ok": true,
+      "checks": {
+        "evidence_support": true,
+        "privacy_leakage": true,
+        "no_pii_in_output": true,
+        "citation_present": true
+      },
+      "n_sources": 10,
+      "n_sanitized": 2,
+      "cloud_released": 5,
+      "routing_reasons": [
+        "mixed sensitivity + complex query \u2192 collaborative local+cloud"
+      ],
+      "privacy_exposure": 0.3,
+      "answer": "Here\u2019s a concise comparison of your company compensation with current industry trends:\n\n### What the industry is doing [CLOUD]\n- The broader tech industry grew **8.3% in 2024**, with **AI and cloud** leading the way.\n- I"
+    }
+  ],
+  "scenario3": [
+    {
+      "label": "Plain Cloud",
+      "mode_used": "cloud",
+      "cost": 0.002645,
+      "latency_ms": 2552,
+      "evidence": 0.58,
+      "validation_ok": true,
+      "checks": {
+        "evidence_support": true,
+        "privacy_leakage": true,
+        "no_pii_in_output": true,
+        "citation_present": true
+      },
+      "n_sources": 2,
+      "n_sanitized": 0,
+      "cloud_released": 2,
+      "routing_reasons": [
+        "user override: cloud"
+      ],
+      "privacy_exposure": 0.1,
+      "answer": "RAG reduces hallucination by grounding the model\u2019s response in retrieved information instead of relying only on the model\u2019s internal memory. In the provided sources, retrieval-augmented generation is described as combini"
+    },
+    {
+      "label": "Plain Local",
+      "mode_used": "local",
+      "cost": 7.1e-05,
+      "latency_ms": 1245,
+      "evidence": 0.58,
+      "validation_ok": true,
+      "checks": {
+        "evidence_support": true,
+        "privacy_leakage": true,
+        "no_pii_in_output": true,
+        "citation_present": true
+      },
+      "n_sources": 2,
+      "n_sanitized": 0,
+      "cloud_released": 0,
+      "routing_reasons": [
+        "user override: local"
+      ],
+      "privacy_exposure": 0.0,
+      "answer": "RAG reduces hallucination by grounding the LLM\u2019s response in retrieved external information instead of relying only on its internal parameters. In particular, combining vector search with structured graph traversal helps"
+    },
+    {
+      "label": "Our AUTO router",
+      "mode_used": "local",
+      "cost": 7.2e-05,
+      "latency_ms": 1208,
+      "evidence": 0.58,
+      "validation_ok": true,
+      "checks": {
+        "evidence_support": true,
+        "privacy_leakage": true,
+        "no_pii_in_output": true,
+        "citation_present": true
+      },
+      "n_sources": 2,
+      "n_sanitized": 0,
+      "cloud_released": 0,
+      "routing_reasons": [
+        "simple query answerable locally"
+      ],
+      "privacy_exposure": 0.0,
+      "answer": "RAG reduces hallucination by grounding the model in retrieved external information instead of relying only on its internal parameters. In particular, retrieval-augmented generation combines vector search with LLMs, and h"
+    }
+  ]
+}

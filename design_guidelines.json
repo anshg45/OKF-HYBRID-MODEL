@@ -1,0 +1,111 @@
+{
+  "theme": "dark",
+  "typography": {
+    "headings": {
+      "family": "IBM Plex Sans",
+      "weights": ["400", "500", "600"],
+      "usage": "Use tight letter spacing (tracking-tight). Do not use Inter, Roboto, or standard sans."
+    },
+    "body": {
+      "family": "IBM Plex Mono",
+      "weights": ["400", "500"],
+      "usage": "Use for all data tables, json traces, logs, and numeric readouts."
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl tracking-tight",
+      "h2": "text-2xl sm:text-3xl tracking-tight",
+      "h3": "text-xl sm:text-2xl",
+      "h4": "text-lg sm:text-xl",
+      "body": "text-sm",
+      "overline": "text-xs uppercase tracking-[0.2em]"
+    }
+  },
+  "colors": {
+    "archetype": "Swiss & High-Contrast (Dark Mode Variant)",
+    "base": {
+      "background": "#0F0F0F",
+      "surface": "#1A1A1A",
+      "border": "#333333"
+    },
+    "accents": {
+      "primary": "#0055FF",
+      "signal_red": "#FF3B30",
+      "warning_yellow": "#FFCC00",
+      "success_green": "#34C759"
+    },
+    "text": {
+      "primary": "#F2F2F2",
+      "secondary": "#A1A1AA",
+      "muted": "#71717A"
+    },
+    "rules": "Color is function only. 95% of UI must be monochrome. Use Signal Red for privacy leakage alerts, Warning Yellow for contradictions, Primary Blue for active tabs or routing paths."
+  },
+  "visual_enhancers": {
+    "borders": "The 'Technical' Look: Use grid borders (border-collapse style). 1px solid borders everywhere. border-radius should be 0px (sharp edges). Avoid soft UI.",
+    "shadows": "Minimal shadows. Use subtle glows (drop-shadow) on warning/error badges or active nodes only.",
+    "surfaces": "NO transparent backgrounds on headers, dropdowns, or overlays. Overlays must use bg-black/90 backdrop-blur-md or solid bg-[#1A1A1A]."
+  },
+  "layouts": {
+    "spacing_scale": "Density is key. Use tight spacing within data cards (p-4), moderate between panels (gap-4 or gap-6).",
+    "grid_strategy": "Mode B (High Density Grid). Base Grid: grid-cols-1 md:grid-cols-3 lg:grid-cols-4. Widgets must stretch using h-full and align-self: stretch.",
+    "patterns": {
+      "dashboard_structure": "Left sidebar for main navigation. Main area divided into prominent KPI strip (top), middle row for trends/experiment charts, and bottom area for logs/traces.",
+      "trace_view": "Progressive disclosure. Split pane view: Left column for conversation/steps tree, Right column for step details, JSON payloads, and privacy scores."
+    }
+  },
+  "components": {
+    "shadcn_overrides": {
+      "Card": "Remove border-radius (rounded-none). Make borders 1px solid border-border. Remove default shadows.",
+      "Button": "Square edges, monospaced text, high-contrast hover states (e.g., hover:bg-white hover:text-black).",
+      "Badge": "Use for privacy levels (e.g., [SENSITIVE: REDACTED]). Monospaced, thin borders.",
+      "Table": "Dense. text-sm or text-xs. Striped rows or border-b between rows.",
+      "general": "Customize Shadcn primitives in .js/.jsx files (not .tsx) as the project uses JS."
+    },
+    "data_visualization": {
+      "charts": "Use recharts. Monochrome lines/bars with accent colors only for anomalies (e.g., latency spikes in red).",
+      "graph_visualization": "Use react-force-graph-2d for OKF Knowledge Repositories. Nodes colored by sensitivity level."
+    }
+  },
+  "image_urls": [
+    {
+      "url": "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhdGElMjBuZXR3b3JrJTIwZ3JhcGh8ZW58MHx8fHwxNzg4NTQxNTY5fDA&ixlib=rb-4.1.0&q=85",
+      "category": "Hero/Background or Empty State",
+      "description": "Blue abstract data network graph. Use as a subtle low-opacity background for the 'Graph Visualizer' empty state."
+    }
+  ],
+  "accessibility": {
+    "contrast": "Ensure APCA standards. Light text on dark bg. Text on accent colors must have high contrast (e.g., Black text on Yellow badge).",
+    "data_testid": "MANDATORY: All interactive and key informational elements MUST include a data-testid attribute to facilitate robust automated testing. Use kebab-case."
+  },
+  "instructions_to_main_agent": [
+    "You are building a research-grade prototype dashboard for an ML/AI system. The UI must feel like a technical command center.",
+    "Adopt the 'Swiss & High-Contrast' dark mode archetype. Use sharp edges (rounded-none), raw data presentation, and monospaced typography for metrics.",
+    "Implement a stable dashboard grid. Avoid scrolling within small widgets; let the page dictate scroll, or strictly overflow-y-auto the trace details panel.",
+    "Use Phosphor Icons or Lucide (stroke-width 1.5). Keep them sparse. Use data-testid on all interactive elements.",
+    "Design the Privacy Audit Dashboard and Trace Viewer using progressive disclosure: overview lists on the left, detailed JSON/metadata on the right.",
+    "Ensure all Shadcn components and custom UI files are authored in .js or .jsx extensions (NO .tsx).",
+    "Install and use `recharts` for cost/latency graphs and `react-force-graph-2d` for the OKF Graph Visualizer."
+  ],
+  "universal_guidelines": [
+    "You tend to converge toward generic, 'on distribution' outputs. Make creative, distinctive frontends that surprise and delight.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Never apply universal transition (transition: all). Target specific properties.",
+    "Never center-align the app container (.App { text-align: center; } is FORBIDDEN).",
+    "Always use modern button styles - for this app, sharp, technical buttons with interaction animations.",
+    "Never use AI assistant Emoji characters for icons.",
+    "Every interaction needs micro-animations (e.g., table row hover, tab switch).",
+    "Use 2-3x more spacing in layout wrappers, but keep dense spacing inside data cards.",
+    "Prioritize existing Shadcn components, adjusting styles to match the technical, sharp-edge theme.",
+    "Use sonner for toast notifications.",
+    "DO NOT use complete transparent background in header, overlays, any surface that has content under it."
+  ],
+  "GENERAL UI UX DESIGN GUIDELINES": [
+    "Follow mobile-first responsive design, even for complex data tables.",
+    "Optical alignment over geometrical alignment.",
+    "Always provide a visual state for empty data or loading screens.",
+    "Ensure error messages are descriptive, clear, and actionable.",
+    "All navigation elements must indicate their active state clearly.",
+    "Use high-contrast hover and focus states for keyboard accessibility.",
+    "MANDATORY: Add data-testid to every clickable element, form field, and major layout section for E2E testing."
+  ]
+}
